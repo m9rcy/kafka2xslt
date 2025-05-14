@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 public class KafkaGlobalKTableService implements KeyValueStoreService<String, Order> {
     
     private static final Logger logger = LoggerFactory.getLogger(KafkaGlobalKTableService.class);
-    
+
     private final StreamsBuilderFactoryBean streamsBuilderFactoryBean;
 
     @Autowired
