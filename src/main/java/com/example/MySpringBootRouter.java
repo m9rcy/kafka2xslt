@@ -37,7 +37,7 @@ public class MySpringBootRouter extends RouteBuilder {
 
         Faker faker = new Faker(new Locale("en-NZ"));
 
-        from("timer:orderProducer?period={{timer.period}}").routeId("hello")
+        from("timer:orderProducer?period={{timer.period}}").autoStartup(true).routeId("hello")
                 .process(exchange -> {
                     String[] possibleIds = {"ID001", "ID002", "ID003", "ID004", "ID005"};
 
@@ -57,12 +57,14 @@ public class MySpringBootRouter extends RouteBuilder {
                             .description(faker.lorem().characters(10))
                             .start(OffsetDateTime.now())
                             .end(OffsetDateTime.now().plusMinutes(5))
+                            //.orderWindow(OrderWindow.builder().id("111").build())
                             .workOrders(randomLengthList).build();
                     exchange.getMessage().setBody(orderEvent);
                     exchange.getMessage().setHeader(KafkaConstants.KEY, orderEvent.getId());
                 })
 
                 .marshal().json(JsonLibrary.Jackson)
+                //.to("xj:identity?transformDirection=JSON2XML")
                 .log("Body before sending to Kafka ${body}")
                 .to("kafka:order-data-topic?"
                     + "brokers=localhost:9092"

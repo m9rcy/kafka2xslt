@@ -27,6 +27,9 @@
                     <End-Date>
                         <xsl:value-of select="//object[@xj:name='end']"/>
                     </End-Date>
+                    <Order-Window>
+                        <xsl:value-of select="//object[@xj:name='orderWindow']/object[@xj:name='id']"/>
+                    </Order-Window>
 
                     <Items>
                         <!-- Generate multiple <Value> for each item -->

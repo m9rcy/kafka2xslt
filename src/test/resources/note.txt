@@ -1,0 +1,40 @@
+Optiona 1
+
+<!-- Assume the outermost object is the root -->
+<xsl:template match="/object">
+    <Sync-Request creationDateTime="{$creationDateTime}" baseLanguage="{$baseLanguage}" version="{$version}">
+        <RequestSet>
+            <Request>
+                <Name>
+                    <xsl:value-of select="object[@xj:name='id']"/>
+                </Name>
+                <Description>
+                    <xsl:value-of select="object[@xj:name='description']"/>
+                </Description>
+                <Start-Date>
+                    <xsl:value-of select="object[@xj:name='start']"/>
+                </Start-Date>
+                <End-Date>
+                    <xsl:value-of select="object[@xj:name='end']"/>
+                </End-Date>
+                <Order-Window>
+                    <xsl:value-of select="object[@xj:name='orderWindow']/object[@xj:name='id']"/>
+                </Order-Window>
+
+                <Items>
+                    <xsl:for-each select="object[@xj:name='workOrders']/object">
+                        <Value>
+                            <xsl:value-of select="."/>
+                        </Value>
+                    </xsl:for-each>
+                </Items>
+            </Request>
+        </RequestSet>
+    </Sync-Request>
+</xsl:template>
+
+
+<xsl:value-of select="//object[@xj:name='id' and not(ancestor::object[@xj:name='orderWindow'])]"/>
+
+<xsl:value-of select="//object[@xj:name='id' and count(ancestor::object) = 1]"/>
+

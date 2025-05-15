@@ -55,8 +55,9 @@ public class KafkaStreamsConfig {
         props.put(StreamsConfig.PROCESSING_GUARANTEE_CONFIG, StreamsConfig.EXACTLY_ONCE_V2);
         
         // Configure state directory for local state stores
-        props.put(StreamsConfig.STATE_DIR_CONFIG, "/tmp/kafka-streams");
-        
+        //props.put(StreamsConfig.STATE_DIR_CONFIG, "/tmp/kafka-streams");
+        props.put(StreamsConfig.STATE_DIR_CONFIG, "C://Users//m9rcy//dev//kafka//kafka-streams");
+
         return new KafkaStreamsConfiguration(props);
     }
 
@@ -87,7 +88,7 @@ public class KafkaStreamsConfig {
 //        }
         JsonSerde<Order> orderSerde = new JsonSerde<>(Order.class, objectMapper);
         return streamsBuilder.globalTable(
-                orderTopic,
+                "_order-data-topic",
                 Consumed.with(Serdes.String(),  orderSerde),
                 Materialized.as("order-global-store")
         );

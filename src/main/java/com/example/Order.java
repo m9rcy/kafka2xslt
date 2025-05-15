@@ -22,6 +22,8 @@ public class Order {
     private OffsetDateTime createdOn;
     private OffsetDateTime modifiedOn;
 
+    //private OrderWindow orderWindow;
+
     @NotNull
     private String id;
     @NotNull

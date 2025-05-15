@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object xmlns:xj="http://camel.apache.org/component/xj" xj:type="object">
+    <object xj:name="version" xj:type="int">13</object>
+    <object xj:name="createdOn" xj:type="string">2025-05-15T13:23:30.302911+12:00</object>
+    <object xj:name="modifiedOn" xj:type="string">2025-05-15T13:23:30.302911+12:00</object>
+    <object xj:name="orderWindow" xj:type="object">
+        <object xj:name="id" xj:type="string">111</object>
+    </object>
+    <object xj:name="id" xj:type="string">ID005</object>
+    <object xj:name="description" xj:type="string">pnx92p9cop</object>
+    <object xj:name="contactName" xj:type="string">Mila</object>
+    <object xj:name="contactNumber" xj:type="string">+64 0 663 5898</object>
+    <object xj:name="start" xj:type="string">2025-05-15T13:23:30+12:00</object>
+    <object xj:name="end" xj:type="string">2025-05-15T13:28:30+12:00</object>
+    <object xj:name="workOrders" xj:type="array">
+        <object xj:type="string">289-70-8099</object>
+        <object xj:type="string">708-26-4027</object>
+    </object>
+</object>
